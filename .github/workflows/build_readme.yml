@@ -3,9 +3,9 @@ name: Update README.md
 on:
   push:
     paths:
-    - 'PDF/*.pdf'
-    - 'PPT/*.ppt'
-    - 'PPTX/*.pptx'
+    - '*.pdf'
+    - '*.ppt'
+    - '*.pptx'
     branches:
     - main
 
