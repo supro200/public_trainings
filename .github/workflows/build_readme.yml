@@ -22,7 +22,7 @@ jobs:
       
     - name: run shell script
       run: |
-        cd ./hellofresh
+        cd ./pubic_trainings
         echo "Currently available" > ./README.md
         echo "" >> ./README.md
         echo "***" >> ./README.md
