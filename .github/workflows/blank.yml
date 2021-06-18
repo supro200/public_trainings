@@ -1,0 +1,39 @@
+name: Update README.md
+
+on:
+  push:
+    paths:
+    - 'PDF/*.pdf'
+    - 'PPT/*.ppt'
+    - 'PPTX/*.pptx'
+    branches:
+    - main
+
+jobs:
+  update_wiki:
+    runs-on: ubuntu-latest
+
+    name: pull repo
+    steps:
+    - name: GIT checkout
+      uses: actions/checkout@v2
+      with:
+        path: pubic_trainings
+      
+    - name: run shell script
+      run: |
+        cd ./hellofresh
+        echo "Currently available" > ./README.md
+        echo "" >> ./README.md
+        echo "***" >> ./README.md
+        echo "" >> ./README.md
+        for i in `ls ./PPTX`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](PPTX/${i})"; echo ""); done >> ./README.md
+        for i in `ls ./PDF`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](PDF/${i})"; echo ""); done >> ./README.md
+        echo "***" >> ./README.md
+        echo "" >> ./README.md
+        echo "Updated: `date`" >> ./README.md
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "generated"
+        git push
