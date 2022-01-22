@@ -1,3 +1,7 @@
-# api_and_python_training_materials
+Currently available
 
-Materials from my training sessions
+***
+
+***
+
+Updated: Sat Jan 22 02:26:43 UTC 2022
