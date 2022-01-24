@@ -30,8 +30,7 @@ jobs:
         echo "****" >> ./README.md
         echo "" >> ./README.md
 
-        for i in `ls | grep pptx`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](pptx/${i})"; echo ""); done >> ./README.md
-        for i in `ls | grep pdf`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](pdf/${i})"; echo ""); done >> ./README.md
+        for i in `ls`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](${i})"; echo ""); done >> ./README.md
         echo "***" >> ./README.md
         echo "" >> ./README.md
         echo "Updated: `date`" >> ./README.md
