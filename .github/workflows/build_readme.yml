@@ -4,7 +4,6 @@ on:
   push:
     paths:
     - 'PDF/*.pdf'
-    - 'PDF/*.pp'
     branches:
     - main
 
@@ -16,12 +15,9 @@ jobs:
     steps:
     - name: GIT checkout
       uses: actions/checkout@v2
-      with:
-        path: hellofresh
 
     - name: run shell script
       run: |
-        cd ./hellofresh
         echo "Currently available" > ./README.md
         echo "" >> ./README.md
         echo "***" >> ./README.md
