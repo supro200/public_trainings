@@ -25,12 +25,13 @@ jobs:
         cd ./pubic_trainings
         echo "Currently available" > ./README.md
         echo "" >> ./README.md
-        echo "****" >> ./README.md
-        echo "" >> ./README.md
         echo `ls -la` >> ./README.md
         echo `pwd` >> ./README.md
-        for i in `ls | grep pptx`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](PPTX/${i})"; echo ""); done >> ./README.md
-        for i in `ls ./pdf`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](PDF/${i})"; echo ""); done >> ./README.md
+        echo "****" >> ./README.md
+        echo "" >> ./README.md
+
+        for i in `ls | grep pptx`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](pptx/${i})"; echo ""); done >> ./README.md
+        for i in `ls | grep pdf`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](pdf/${i})"; echo ""); done >> ./README.md
         echo "***" >> ./README.md
         echo "" >> ./README.md
         echo "Updated: `date`" >> ./README.md
