@@ -27,6 +27,8 @@ jobs:
         echo "" >> ./README.md
         echo "***" >> ./README.md
         echo "" >> ./README.md
+        echo "ls -la" >> ./README.md
+        echo "pwd" >> ./README.md
         for i in `ls ./PPTX`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](PPTX/${i})"; echo ""); done >> ./README.md
         for i in `ls ./PDF`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](PDF/${i})"; echo ""); done >> ./README.md
         echo "***" >> ./README.md
