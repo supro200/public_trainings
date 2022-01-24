@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - 'PDF/*.pdf'
+    - 'PDF/*.pp'
     branches:
     - main
 
