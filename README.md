@@ -1,7 +1,9 @@
 Currently available
 
+****
+
+ls -la
+pwd
 ***
 
-***
-
-Updated: Sat Jan 22 02:26:43 UTC 2022
+Updated: Mon Jan 24 04:45:58 UTC 2022
