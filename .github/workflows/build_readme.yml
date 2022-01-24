@@ -3,14 +3,12 @@ name: Update README.md
 on:
   push:
     paths:
-    - '*.pdf'
-    - '*.ppt'
-    - '*.pptx'
+    - 'PDF/*.pdf'
     branches:
     - main
 
 jobs:
-  update_readme:
+  update_wiki:
     runs-on: ubuntu-latest
 
     name: pull repo
@@ -18,19 +16,16 @@ jobs:
     - name: GIT checkout
       uses: actions/checkout@v2
       with:
-        path: pubic_trainings
-      
+        path: hellofresh
+
     - name: run shell script
       run: |
-        cd ./pubic_trainings
+        cd ./hellofresh
         echo "Currently available" > ./README.md
         echo "" >> ./README.md
-        echo `ls -la` >> ./README.md
-        echo `pwd` >> ./README.md
-        echo "****" >> ./README.md
+        echo "***" >> ./README.md
         echo "" >> ./README.md
-
-        for i in `ls`; do (file=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${file^}](${i})"; echo ""); done >> ./README.md
+        for i in `ls ./PDF`; do (food=`echo ${i} | sed 's/-[0-9a-f-]\{33\}//g' | sed 's/-/ /g' | cut -d. -f1`;echo "[${food^}](PDF/${i})"; echo ""); done >> ./README.md
         echo "***" >> ./README.md
         echo "" >> ./README.md
         echo "Updated: `date`" >> ./README.md
